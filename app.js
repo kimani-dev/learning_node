@@ -1,5 +1,6 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
+const PORT = process.env.PORT || 5000;
 
 // initialize app
 const app = express();
@@ -12,11 +13,16 @@ const uri =
 const client = new MongoClient(uri);
 async function main() {
   try {
-    await client.connect().then(() => {
-      app.listen(5000, () => {
-        console.log("listening on port 5000");
+    await client
+      .connect()
+      .then(() => {
+        app.listen(3000, { useUnifiedTopology: true}, () => {
+          console.log("listening on port 3000");
+        });
+      })
+      .catch((e) => {
+        console.log(`error is ${e}`);
       });
-    });
   } catch (e) {
     console.error(e);
   } finally {
@@ -35,9 +41,13 @@ let appartments = [];
 
 // function to get documents
 async function getDocuments() {
-  await collection.forEach((doc) => {
-    appartments.push(doc);
-  });
+  try {
+    await collection.forEach((doc) => {
+      appartments.push(doc);
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 getDocuments();
