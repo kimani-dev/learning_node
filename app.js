@@ -13,7 +13,9 @@ const client = new MongoClient(uri);
 async function main() {
   try {
     await client.connect().then(() => {
-      app.listen(3000);
+      app.listen(5000, () => {
+        console.log("listening on port 5000");
+      });
     });
   } catch (e) {
     console.error(e);
