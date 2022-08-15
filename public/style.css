@@ -1,0 +1,30 @@
+body {
+  margin: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-evenly;
+  gap: 1em;
+}
+
+.card {
+  width: 20rem;
+  height: 25rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.card-image {
+  width: 20rem;
+}
+
+.card-text {
+  padding: 3px;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

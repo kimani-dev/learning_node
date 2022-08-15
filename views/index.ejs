@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Home | <%= title %></title>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <h2>Welcome! View our blogs :</h2>
+
+    <div class="container">
+      <% if (appartments.length > 0) { %> <% appartments.forEach((item) => { %>
+      <div class="card">
+        <img class="card-image" src="<%= item.images.picture_url %> " alt="" />
+        <h3 class="card-title"><%= item.name %></h3>
+        <p class="card-text"><%= item.summary %></p>
+      </div>
+      <% }) %>
+    </div>
+    <% } else { %>
+
+    <p>There are no blogs to display</p>
+    <% } %>
+  </body>
+</html>
