@@ -1,9 +1,15 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
+const cors = require("cors");
 const PORT = process.env.PORT || 5000;
 
 // initialize app
 const app = express();
+
+// cors
+app.use(cors({
+  origin: "*"
+}))
 
 // connection to mongo db
 const uri =
@@ -17,7 +23,7 @@ async function main() {
       .connect()
       .then(() => {
         app.listen(PORT, { useUnifiedTopology: true, useNewUrlParser: true}, () => {
-          console.log("listening on port 3000");
+          console.log("listening on port 5000");
         });
       })
       .catch((e) => {
