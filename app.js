@@ -16,7 +16,7 @@ async function main() {
     await client
       .connect()
       .then(() => {
-        app.listen(3000, { useUnifiedTopology: true, useNewUrlParser: true}, () => {
+        app.listen(PORT, { useUnifiedTopology: true, useNewUrlParser: true}, () => {
           console.log("listening on port 3000");
         });
       })
