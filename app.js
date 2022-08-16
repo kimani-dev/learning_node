@@ -14,8 +14,7 @@ app.use(
 );
 
 // connection to mongo db
-const uri =
-  "mongodb+srv://ithewakimani:ithewakimani@nodetut.j3bbfqj.mongodb.net/?retryWrites=true&w=majority";
+const uri = //mongo db uri
 
 //   mongo db client
 const client = new MongoClient(uri);
