@@ -7,9 +7,11 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 // cors
-app.use(cors({
-  origin: "*"
-}))
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // connection to mongo db
 const uri =
@@ -22,9 +24,13 @@ async function main() {
     await client
       .connect()
       .then(() => {
-        app.listen(PORT, { useUnifiedTopology: true, useNewUrlParser: true}, () => {
-          console.log("listening on port 5000");
-        });
+        app.listen(
+          PORT,
+          { useUnifiedTopology: true, useNewUrlParser: true },
+          () => {
+            console.log("listening on port 5000");
+          }
+        );
       })
       .catch((e) => {
         console.log(`error is ${e}`);
@@ -32,7 +38,7 @@ async function main() {
   } catch (e) {
     console.error(e);
   } finally {
-    await client.close();
+    // await client.close();
   }
 }
 
